@@ -20,15 +20,27 @@ public final class EstadoTipoRelacionInstitucionEntity {
 		setDescripcion(UtilText.EMPTY);
 	}
 	
-	
-	
-	public EstadoTipoRelacionInstitucionEntity(UUID identificador, String nombre, String descripcion) {
+	public EstadoTipoRelacionInstitucionEntity(final UUID identificador, final String nombre, final String descripcion) {
 		super();
 		setIdentificador(identificador);
 		setNombre(nombre);
-		setDescripcion(descripcion);	
+		setDescripcion(descripcion);
+	}
+	
+	
+	
+	public static final EstadoTipoRelacionInstitucionEntity createWithIdentificador(UUID identificador) {
+		return new EstadoTipoRelacionInstitucionEntity(identificador, UtilText.getUtilText().getDefaultValue(), UtilText.EMPTY);
+		
 		}
 	
+	public static final EstadoTipoRelacionInstitucionEntity createWithNombre(final String nombre) {
+		return new EstadoTipoRelacionInstitucionEntity(UtilUUID.DEFAULT_UUID, nombre, UtilText.EMPTY);	
+		}
+	
+	public static final EstadoTipoRelacionInstitucionEntity createWithDescripcion(final String descripcion) {
+		return new EstadoTipoRelacionInstitucionEntity(UtilUUID.DEFAULT_UUID, UtilText.EMPTY, descripcion);	
+		}
 	
 	public static EstadoTipoRelacionInstitucionEntity getDefaultObject() {
 		return DEFAULT_OBJECT;
@@ -60,7 +72,5 @@ public final class EstadoTipoRelacionInstitucionEntity {
 		this.descripcion = UtilText.getUtilText().applyTrim(nombre);
 		
 	}
-
-
 	
 }
